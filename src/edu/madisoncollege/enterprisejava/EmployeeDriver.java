@@ -19,7 +19,20 @@ import org.hibernate.cfg.Configuration;
 public class EmployeeDriver {
     public static void main(String[] args) {
         EmployeeDao dao = new EmployeeDao();
+
+// dao.addEmployee
         Employee employee = new Employee(0, "Dean", "Martin","222-33-4444","ET","100","4148887771");
         dao.addEmployee(employee);
+// dao.getEmployee
+        System.out.println("Returned Employee: " + dao.getEmployee(109));
+// dao.getAllEmployees
+        System.out.println(dao.getAllEmployees());
+// dao.updateEmployeeLastName
+        dao.updateEmployeeLastName(116, "Tillman-Spillman");
+// dao.deleteEmployee
+        dao.deleteEmployee(101);
+// final Employees list After dao transactions have been run:
+        System.out.println("After, 116 new name, 101 deleted, new Dean Martin: " + dao.getAllEmployees());
+
     }
 }
